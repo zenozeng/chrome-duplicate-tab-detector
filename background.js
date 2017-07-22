@@ -2,7 +2,6 @@ function removeDuplicateTab(newTab) {
     chrome.tabs.getAllInWindow(newTab.windowId, function(tabs) {
         var duplicateTab = null;
         tabs.forEach(function(otherTab) {
-            console.log({otherTab})
             if (otherTab.id !== newTab.id && otherTab.url === newTab.url) {
                 duplicateTab = otherTab;
             }
