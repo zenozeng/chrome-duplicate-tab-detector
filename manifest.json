@@ -1,6 +1,6 @@
 {
   "name": "chrome-duplicate-tab-detector",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "manifest_version": 2,
   "description": "Alters the behaviour of opening a new tab to help reduce duplicate tabs (tabs displaying the same URL)",
   "background": {
