@@ -1,8 +1,13 @@
 function normalizeUrl(url) {
-    let end = "slack.com/messages";
-    if (url.indexOf(end) > -1) {
-        return url.substring(0, url.indexOf(end) + end.length);
-    }
+    [
+        "slack.com/messages",
+        "music.163.com",
+        "app.futurenda.com",
+    ].forEach((end) => {
+        if (url.indexOf(end) > -1) {
+            url = url.substring(0, url.indexOf(end) + end.length);
+        }
+    });
     return url;
 }
 
