@@ -1,6 +1,7 @@
 function normalizeUrl(url) {
     [
         "slack.com/messages",
+        "web.telegram.org",
         "music.163.com",
         "app.futurenda.com",
     ].forEach((end) => {
