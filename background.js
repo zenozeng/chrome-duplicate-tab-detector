@@ -12,6 +12,12 @@ function normalizeUrl(url) {
     return url;
 }
 
+function preferNew(url) {
+    return [
+        "github.com"
+    ].some((domain) => url.indexOf(domain) > -1)
+}
+
 function removeDuplicateTab(newTab) {
     chrome.tabs.getAllInWindow(newTab.windowId, function(tabs) {
         var duplicateTab = null;
@@ -23,8 +29,12 @@ function removeDuplicateTab(newTab) {
             }
         });
         if (duplicateTab) {
-            chrome.tabs.update(duplicateTab.id, {"selected": true});
-            chrome.tabs.remove(newTab.id);
+            if (preferNew(newTab.url)) {
+                chrome.tabs.remove(duplicateTab.id);
+            } else {
+                chrome.tabs.update(duplicateTab.id, {"selected": true});
+                chrome.tabs.remove(newTab.id);
+            }
         }
     });
 }
