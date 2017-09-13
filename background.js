@@ -4,6 +4,7 @@ function normalizeUrl(url) {
         "web.telegram.org",
         "music.163.com",
         "app.futurenda.com",
+        "jd.com",
     ].forEach((end) => {
         if (url.indexOf(end) > -1) {
             url = url.substring(0, url.indexOf(end) + end.length);
